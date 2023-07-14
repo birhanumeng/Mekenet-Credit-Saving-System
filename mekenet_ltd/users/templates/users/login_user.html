@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>MEKENET</title>
+        <link rel="icon" href="{% static 'images/mylogo.png' %}">
+
+        <style>
+            /** {box-sizing: border-box;}*/
+
+            /* Style the input container */
+            .input-container {
+            display: flex;
+            width: 100%;
+            margin-bottom: 15px;
+            }
+
+            body {
+                background-image: url('/static/images/Clogo.jpg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-attachment: fixed;
+                background-color: white;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+                margin-bottom: 0;
+            }
+
+            .area {
+                padding-top: 150px;
+                padding-left: 600px;
+                padding-right: 600px;
+            }
+
+            /* Style the input fields */
+            .input-field {
+            width: 100%;
+            padding: 10px;
+            outline: none;
+            }
+
+            .input-field:focus {
+            border: 2px solid dodgerblue;
+            }
+
+            /* Set a style for the submit button */
+            .btn {
+            background-color: dodgerblue;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+            }
+
+            .btn:hover {
+            opacity: 1;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="area">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <h2>Please Login</h2>
+                <div class="input-container">
+                <input class="input-field" type="text" placeholder="Username" name="username"
+                required oninvalid="this.setCustomValidity('Password is required')" oninput="setCustomValidity('')">
+                </div>
+                
+                <div class="input-container">
+                <input class="input-field" type="password" placeholder="Password" name="password"
+                required oninvalid="this.setCustomValidity('Password is required')" oninput="setCustomValidity('')">
+                </div>
+
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                
+                <button type="submit" class="btn">Register</button>
+            </form>
+        </div>
+    </body>
+</html>

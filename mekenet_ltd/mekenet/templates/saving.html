@@ -1,0 +1,44 @@
+{% extends 'header.html' %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Undue</th>
+            <th>Vocher</th>
+            <th>Compulsary</th>
+            <th>Voluntary</th>
+            <th>Maker</th>
+            <th>Authorizer</th>
+            <th>Total</th>
+            <th>Interest</th>
+            <th>Balance</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% if saves %}
+            {% for save in saves %}
+                <tr>
+                    <td>{{save.id}}</td>
+                    <td>{{save.name}}</td>
+                    <td>{{save.date}}</td>
+                    <td>{{save.status}}</td>
+                    <td>{{save.undue}}</td>
+                    <td>{{save.vocher}}</td>
+                    <td>{{save.compulsary}}</td>
+                    <td>{{save.voluntary}}</td>
+                    <td>{{save.maker}}</td>
+                    <td>{{save.authorizer}}</td>
+                    <td>{{save.total}}</td>
+                    <td>{{save.interest}}%</td>
+                    <td>{{save.balance}}</td>
+                    <td><a href="{% url 'update_saving' save.id %}">edit</a></td>
+                    <td><a href="{% url 'delete_saving' save.id %}">delete</a></td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+{% endblock %}

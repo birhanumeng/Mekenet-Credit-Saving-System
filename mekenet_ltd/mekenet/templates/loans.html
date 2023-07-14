@@ -1,0 +1,40 @@
+{% extends 'header.html' %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Catagory</th>
+            <th>Repayment</th>
+            <th>Collateral</th>
+            <th>Loan Term</th>
+            <th>Return Date</th>
+            <th>Maker</th>
+            <th>Authorizer</th>
+            <th>Interest</th>
+            <th>Balance</th>
+        </tr>
+        {% if loans %}
+            {% for loan in loans %}
+                <tr>
+                    <td>{{loan.id}}</td>
+                    <td>{{loan.name}}</td>
+                    <td>{{loan.date}}</td>
+                    <td>{{loan.amount}}</td>
+                    <td>{{loan.catagory}}</td>
+                    <td>{{loan.repayment}}</td>
+                    <td>{{loan.collateral}}</td>
+                    <td>{{loan.loan_term}}</td>
+                    <td>{{loan.return_date}}</td>
+                    <td>{{loan.maker}}</td>
+                    <td>{{loan.authorizer}}</td>
+                    <td>{{loan.interest}}%</td>
+                    <td>{{loan.balance}}</td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+{% endblock %}

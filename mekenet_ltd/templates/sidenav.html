@@ -1,0 +1,11 @@
+<style>
+</style>
+{% load static %}
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/main.css' %}">
+<div class="sidebar">
+    <a href="#">Saving report</a>
+    <a href="{% url 'create_saving' %}">Add Saving</a>
+    <a href="{% url 'create_loan' %}">Add Loans</a>
+    <a href="{% url 'user_register' %}">Add Users</a>
+    <a href="{% url 'search_profile' %}">Update User Profile</a>
+  </div>

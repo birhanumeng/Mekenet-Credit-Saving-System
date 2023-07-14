@@ -1,0 +1,32 @@
+{% extends 'header.html' %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Sex</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Membership</th>
+            <th>No of shares</th>
+            <th>Branch</th>
+        </tr>
+        {% for customer in customers %}
+            <tr>
+                <td>{{customer.id}}</td>
+                <td>{{customer.name}}</td>
+                <td>{{customer.date}}</td>
+                <td>{{customer.sex}}</td>
+                <td>{{customer.address}}</td>
+                <td>{{customer.phone}}</td>
+                <td>{{customer.email}}</td>
+                <td>{{customer.membership}}</td>
+                <td>{{customer.shares}}</td>
+                <td>{{customer.branch}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

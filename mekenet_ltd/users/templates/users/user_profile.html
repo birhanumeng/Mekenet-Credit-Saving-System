@@ -1,0 +1,35 @@
+{% extends 'header.html' %}
+
+{% block content%}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/loan.css' %}">
+    <div class="form-style-2">
+        <div class="form-style-2-heading">Update a user information</div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <br /><label for="field1"><span>Username <span class="required">*</span></span>
+                <input type="text" class="input-field" name="username" id="userInput" value="{{profile.username}}"/>
+            </label>
+            <label for="field1"><span>Name <span class="required">*</span></span>
+                <input type="text" class="input-field" name="field1" value="{{profile.name}}" />
+            </label>
+            <label for="field1"><span>ID <span class="required">*</span></span>
+                <input type="text" class="input-field" name="mid" value="{{profile.id}}" />
+            </label>
+            <label for="field1"><span>Date <span class="required">*</span></span>
+                <input type="text" class="input-field" name="date" value="{{profile.date}}" />
+            </label>
+            <label for="field1"><span>Role <span class="required">*</span></span>
+                <input type="text" class="input-field" name="role" value="{{profile.role}}" />
+            </label>
+            <label for="field1"><span>Email <span class="required">*</span></span>
+                <input type="text" class="input-field" name="email" value="{{profile.email}}" />
+            </label>
+            <label for="field1"><span>Phone <span class="required">*</span></span>
+                <input type="text" class="input-field" name="phone" value="{{profile.phone}}" />
+            </label>
+            
+            <label><span> </span><input type="submit" value="Update" /></label>
+        </form>
+    </div>
+{% endblock%}
